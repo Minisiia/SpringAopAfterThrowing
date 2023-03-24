@@ -1,4 +1,4 @@
-package two_methods.postprocessors;
+package division.postprocessors;
 
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.BeanPostProcessor;

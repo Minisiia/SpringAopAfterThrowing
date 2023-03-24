@@ -1,31 +1,25 @@
-package two_methods.main;
+package division.main;
 
+import division.objects.Calculator;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import two_methods.objects.FileManager;
-import two_methods.objects.FileManager2;
+
 
 /**
- * З прикладу 008_AOP_Interface змінити код: вивести час роботи лише тих методів, які повертають тип Map.
- * Розбити метод друку на 2 види: перший друкує лише Set, другий – лише Map.
+ * Реалізувати аспект виведення Exception.
+ * Створити метод ділення чисел. У разі помилки: виводить її на екран.
  */
 
 public class Start {
-
     public static void main(String[] args) {
         ApplicationContext context = new ClassPathXmlApplicationContext("context.xml");
-        FileManager fileManager = (FileManager) context.getBean("fileManager");
-        FileManager2 fileManager2 = (FileManager2) context.getBean("fileManager2");
-
-        System.out.println((char) 27 + "[34m" + "FileManager: " + (char) 27 + "[38m");
-
-        fileManager.getExtensionCount("c:\\Windows\\");
-        fileManager.getExtensionList("c:\\Windows\\");
-
-        System.out.println((char) 27 + "[34m" + "FileManager2: " + (char) 27 + "[38m");
-
-        fileManager2.getExtensionCount("c:\\Windows");
-        fileManager2.getExtensionList("c:\\Windows\\");
-
+        Calculator calculator = (Calculator) context.getBean("calculator");
+        System.out.println((char) 27 + "[34m" + "Calculator: " + (char) 27 + "[38m");
+        try {
+            System.out.println(calculator.divide(12, 3));
+            System.out.println(calculator.divide(12, 0));
+            System.out.println(calculator.divide(12, 4));
+        } catch (ArithmeticException e) {
+        }
     }
 }
