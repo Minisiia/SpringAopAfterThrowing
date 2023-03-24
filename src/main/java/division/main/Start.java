@@ -4,7 +4,6 @@ import division.objects.Calculator;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-
 /**
  * Реалізувати аспект виведення Exception.
  * Створити метод ділення чисел. У разі помилки: виводить її на екран.
